@@ -1,19 +1,74 @@
 public class BookManagerService 
 {
+    //thiss code uses a dictionary with a string key and a book value
     private Dictionary<string, Book> bookDictionary = new Dictionary<string, Book>();
 
+    public void AddBook(string id, string title, string author, string genre)
+    {
+        Book presetBook = new Book{
+            bookId = id,
+            bookTitle = title,
+            authorName = author,
+            bookGenre = genre
+        };
+        bookDictionary.Add(presetBook.bookId, presetBook);
+    }
+/// <summary>
+/// Method that adds books to the dictionary
+/// </summary>
     public void AddBook() 
     {
         Book newBook = new Book();
         ValidateID(newBook);
-        Console.WriteLine("Book Title: ");
-        newBook.bookTitle = Console.ReadLine();
-        Console.WriteLine("Book Author: ");
-        newBook.authorName = Console.ReadLine();
-        Console.WriteLine("Book Genre: ");
-        newBook.bookGenre = Console.ReadLine();
+        ValidateTitle(newBook);
+        ValidateAuthor(newBook);
+        ValidateGenre(newBook);
         bookDictionary.Add(newBook.bookId, newBook);
     }
+    /// <summary>
+    /// Method to validate the authors name
+    /// </summary>
+    /// <param name="newBook3"></param>
+    public void ValidateAuthor(Book newBook3)
+    {
+        Console.WriteLine("Book Author: ");
+        string newBookName = Console.ReadLine();
+        if (string.IsNullOrEmpty(newBookName)) {
+            Console.WriteLine("A book needs an Author. Please put in a valid name: ");
+            ValidateAuthor(newBook3);
+        }
+        else {
+            newBook3.authorName = newBookName;
+        }
+    }
+    public void ValidateTitle(Book newBook4)
+    {
+        Console.WriteLine("Book Title: ");
+        string newBookTitle = Console.ReadLine();
+        if (string.IsNullOrEmpty(newBookTitle)) {
+            Console.WriteLine("A book needs an Title. Please put in a valid title: ");
+            ValidateTitle(newBook4);
+        }
+        else {
+            newBook4.bookTitle = newBookTitle;
+        }
+    }
+    public void ValidateGenre(Book newBook5)
+    {
+        Console.WriteLine("Book Genre: ");
+        string newBookGenre = Console.ReadLine();
+        if (string.IsNullOrEmpty(newBookGenre)) {
+            Console.WriteLine("A book needs an Genre. Please put in a valid genre: ");
+            ValidateGenre(newBook5);
+        }
+        else {
+            newBook5.bookGenre = newBookGenre;
+        }
+    }
+    /// <summary>
+    /// method that validates a enterd id by finding if that id already exists or if the user entered white space
+    /// </summary>
+    /// <param name="newBook2">parameter to control where the id is going</param>
     public void ValidateID(Book newBook2)
     {
         Console.WriteLine("Book ID: ");
@@ -34,6 +89,7 @@ public class BookManagerService
             ValidateID(newBook2);
         }
     }
+    
     /// <summary>
     /// A method that displays all books in bookDictionary using a foreach loop
     /// </summary>
@@ -48,6 +104,9 @@ public class BookManagerService
             Console.WriteLine("---------------------------");
         }
     }
+    /// <summary>
+    /// A method that looks up individual books using an entered id
+    /// </summary>
     public void LookUpBook()
     {
         Console.WriteLine("What is the ID of the book you'd like to look up?");
@@ -58,6 +117,9 @@ public class BookManagerService
         Console.WriteLine("Genre: " + bookDictionary[Id].bookGenre);
         Console.WriteLine("---------------------------");
     }
+    /// <summary>
+    /// A method that removes books using an entered id
+    /// </summary>
     public void RemoveBook()
     {
         Console.WriteLine("Which book would you like to delete?");
@@ -66,11 +128,15 @@ public class BookManagerService
         bookDictionary.Remove($"{Id}");
         Console.WriteLine(deletedBook + " REMOVED");
     }
+    /// <summary>
+    /// The method that runs the book manager service
+    /// </summary>
     public void runService()
     {
         string choice = "0";
         do 
         {
+            Console.WriteLine("Welcome to the book management system. You currently have " + bookDictionary.Count + " books in your system.");
             Console.WriteLine("What would you like to do? \n" + 
             "1. Add a book\n" +
             "2. Display all books\n" +
@@ -78,6 +144,7 @@ public class BookManagerService
             "4. Remove a book\n" +
             "5. Exit\n");
             choice = Console.ReadLine();
+            //Swich controls where the user goes
             switch (choice) 
             {
                 case "1":
