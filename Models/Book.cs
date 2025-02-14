@@ -5,6 +5,9 @@ public class Book
     public string authorName {get; set;}
     public string bookGenre {get; set;}
 
+/// <summary>
+/// costructor for a book object
+/// </summary>
     public Book() 
     {
         this.bookId = "";
@@ -13,11 +16,5 @@ public class Book
         this.bookGenre = "";
     }
 
-    public Book(string id, string title, string author, string genre) 
-    {
-        this.bookId = id;
-        this.bookTitle = title;
-        this.authorName = author;
-        this.bookGenre = genre;
-    }
+    
 }

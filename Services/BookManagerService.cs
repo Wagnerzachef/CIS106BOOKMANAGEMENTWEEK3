@@ -3,6 +3,13 @@ public class BookManagerService
     //thiss code uses a dictionary with a string key and a book value
     private Dictionary<string, Book> bookDictionary = new Dictionary<string, Book>();
 
+/// <summary>
+/// A method that adds books directly from the code
+/// </summary>
+/// <param name="id">a string for book id</param>
+/// <param name="title">a string for a book title</param>
+/// <param name="author">a string for a author's name</param>
+/// <param name="genre">a string for a books genre</param>
     public void AddBook(string id, string title, string author, string genre)
     {
         Book presetBook = new Book{
@@ -14,7 +21,7 @@ public class BookManagerService
         bookDictionary.Add(presetBook.bookId, presetBook);
     }
 /// <summary>
-/// Method that adds books to the dictionary
+/// Method that adds books to the dictionary using user input
 /// </summary>
     public void AddBook() 
     {
@@ -29,7 +36,7 @@ public class BookManagerService
     /// Method to validate the authors name
     /// </summary>
     /// <param name="newBook3"></param>
-    public void ValidateAuthor(Book newBook3)
+    private void ValidateAuthor(Book newBook3)
     {
         Console.WriteLine("Book Author: ");
         string newBookName = Console.ReadLine();
@@ -41,7 +48,7 @@ public class BookManagerService
             newBook3.authorName = newBookName;
         }
     }
-    public void ValidateTitle(Book newBook4)
+    private void ValidateTitle(Book newBook4)
     {
         Console.WriteLine("Book Title: ");
         string newBookTitle = Console.ReadLine();
@@ -53,7 +60,7 @@ public class BookManagerService
             newBook4.bookTitle = newBookTitle;
         }
     }
-    public void ValidateGenre(Book newBook5)
+    private void ValidateGenre(Book newBook5)
     {
         Console.WriteLine("Book Genre: ");
         string newBookGenre = Console.ReadLine();
@@ -69,13 +76,13 @@ public class BookManagerService
     /// method that validates a enterd id by finding if that id already exists or if the user entered white space
     /// </summary>
     /// <param name="newBook2">parameter to control where the id is going</param>
-    public void ValidateID(Book newBook2)
+    private void ValidateID(Book newBook2)
     {
         Console.WriteLine("Book ID: ");
         string testId = Console.ReadLine();
         if (!string.IsNullOrWhiteSpace(testId))
         {
-            if (!bookDictionary.ContainsKey(testId))
+            if (!bookDictionary.ContainsKey(testId)) //test if id is already in dictionary
             {
                 newBook2.bookId = testId;
             }
