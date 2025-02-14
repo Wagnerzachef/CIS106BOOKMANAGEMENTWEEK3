@@ -29,9 +29,58 @@ public class BookManagerService
             Console.WriteLine("---------------------------");
         }
     }
+    public void LookUpBook()
+    {
+        Console.WriteLine("What is the ID of the book you'd like to look up?");
+        string Id = Console.ReadLine();
+        Console.WriteLine("ID: " + bookDictionary[Id].bookId);
+        Console.WriteLine("Title: " + bookDictionary[Id].bookTitle);
+        Console.WriteLine("Author: " + bookDictionary[Id].authorName);
+        Console.WriteLine("Genre: " + bookDictionary[Id].bookGenre);
+        Console.WriteLine("---------------------------");
+    }
+    public void RemoveBook()
+    {
+        Console.WriteLine("Which book would you like to delete?");
+        string Id = Console.ReadLine();
+        string deletedBook =bookDictionary[Id].bookTitle;
+        bookDictionary.Remove($"{Id}");
+        Console.WriteLine(deletedBook + " REMOVED");
+    }
     public void runService()
     {
-        AddBook();
-        DisplayAllBooks();
+        string choice = "0";
+        do 
+        {
+            Console.WriteLine("What would you like to do? \n" + 
+            "1. Add a book\n" +
+            "2. Display all books\n" +
+            "3. Look up a book by Id\n" +
+            "4. Remove a book\n" +
+            "5. Exit\n");
+            choice = Console.ReadLine();
+            switch (choice) 
+            {
+                case "1":
+                    AddBook();
+                    break;
+                case "2":
+                    DisplayAllBooks();
+                    break;
+                case "3":
+                    LookUpBook();
+                    break;
+                    case "4":
+                    RemoveBook();
+                    break;
+                case "5":
+                    Console.WriteLine("Goodbye!");
+                    break;
+                default:
+                    Console.WriteLine("Invalid input. Please enter a number between 1 and 5: ");
+                    break;
+            } 
+        } while (choice != "5");
+            
     }
 }
