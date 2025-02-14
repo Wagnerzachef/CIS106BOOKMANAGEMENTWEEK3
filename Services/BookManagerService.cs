@@ -48,6 +48,10 @@ public class BookManagerService
             newBook3.authorName = newBookName;
         }
     }
+    /// <summary>
+    /// method to validate user input for book title
+    /// </summary>
+    /// <param name="newBook4"></param>
     private void ValidateTitle(Book newBook4)
     {
         Console.WriteLine("Book Title: ");
@@ -60,6 +64,10 @@ public class BookManagerService
             newBook4.bookTitle = newBookTitle;
         }
     }
+    /// <summary>
+    /// method to validate user input for book genre
+    /// </summary>
+    /// <param name="newBook5"></param>
     private void ValidateGenre(Book newBook5)
     {
         Console.WriteLine("Book Genre: ");
@@ -112,7 +120,8 @@ public class BookManagerService
         }
     }
     /// <summary>
-    /// A method that looks up individual books using an entered id
+    /// A method that looks up individual books using an entered id 
+    /// and prevents the user from looking up invalid id's
     /// </summary>
     public void LookUpBook()
     {
@@ -131,6 +140,7 @@ public class BookManagerService
     }
     /// <summary>
     /// A method that removes books using an entered id
+    /// and prevents the user from deleting id's that don't exist
     /// </summary>
     public void RemoveBook()
     {
@@ -172,7 +182,7 @@ public class BookManagerService
                 case "3":
                     LookUpBook();
                     break;
-                    case "4":
+                case "4":
                     RemoveBook();
                     break;
                 case "5":
