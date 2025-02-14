@@ -35,7 +35,7 @@ public class BookManagerService
     /// <summary>
     /// Method to validate the authors name
     /// </summary>
-    /// <param name="newBook3"></param>
+    /// <param name="newBook3">parameter to control where the id is going</param>
     private void ValidateAuthor(Book newBook3)
     {
         Console.WriteLine("Book Author: ");
@@ -51,7 +51,7 @@ public class BookManagerService
     /// <summary>
     /// method to validate user input for book title
     /// </summary>
-    /// <param name="newBook4"></param>
+    /// <param name="newBook4">parameter to control where the id is going</param>
     private void ValidateTitle(Book newBook4)
     {
         Console.WriteLine("Book Title: ");
@@ -67,7 +67,7 @@ public class BookManagerService
     /// <summary>
     /// method to validate user input for book genre
     /// </summary>
-    /// <param name="newBook5"></param>
+    /// <param name="newBook5">parameter to control where the id is going</param>
     private void ValidateGenre(Book newBook5)
     {
         Console.WriteLine("Book Genre: ");
