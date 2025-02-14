@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CIS106BOOKMANAGEMENTWEEK3")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+94a0e9f55ae7532ee158756e8b2d5ed593427cbe")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1d2a9487179f806f5396908874cfe2b130406161")]
 [assembly: System.Reflection.AssemblyProductAttribute("CIS106BOOKMANAGEMENTWEEK3")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CIS106BOOKMANAGEMENTWEEK3")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

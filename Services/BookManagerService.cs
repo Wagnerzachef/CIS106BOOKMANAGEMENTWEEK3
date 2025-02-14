@@ -118,11 +118,16 @@ public class BookManagerService
     {
         Console.WriteLine("What is the ID of the book you'd like to look up?");
         string Id = Console.ReadLine();
-        Console.WriteLine("ID: " + bookDictionary[Id].bookId);
-        Console.WriteLine("Title: " + bookDictionary[Id].bookTitle);
-        Console.WriteLine("Author: " + bookDictionary[Id].authorName);
-        Console.WriteLine("Genre: " + bookDictionary[Id].bookGenre);
-        Console.WriteLine("---------------------------");
+        if (bookDictionary.ContainsKey(Id)) {
+            Console.WriteLine("ID: " + bookDictionary[Id].bookId);
+            Console.WriteLine("Title: " + bookDictionary[Id].bookTitle);
+            Console.WriteLine("Author: " + bookDictionary[Id].authorName);
+            Console.WriteLine("Genre: " + bookDictionary[Id].bookGenre);
+            Console.WriteLine("---------------------------");
+        }
+        else{
+            Console.WriteLine("We are sorry. The book you are trying to look up doesn't exist yet. Please add it to our records.\n");
+        }
     }
     /// <summary>
     /// A method that removes books using an entered id
