@@ -5,8 +5,7 @@ public class BookManagerService
     public void AddBook() 
     {
         Book newBook = new Book();
-        Console.WriteLine("Book ID: ");
-        newBook.bookId = Console.ReadLine();
+        ValidateID(newBook);
         Console.WriteLine("Book Title: ");
         newBook.bookTitle = Console.ReadLine();
         Console.WriteLine("Book Author: ");
@@ -14,6 +13,26 @@ public class BookManagerService
         Console.WriteLine("Book Genre: ");
         newBook.bookGenre = Console.ReadLine();
         bookDictionary.Add(newBook.bookId, newBook);
+    }
+    public void ValidateID(Book newBook2)
+    {
+        Console.WriteLine("Book ID: ");
+        string testId = Console.ReadLine();
+        if (!string.IsNullOrWhiteSpace(testId))
+        {
+            if (!bookDictionary.ContainsKey(testId))
+            {
+                newBook2.bookId = testId;
+            }
+            else {
+                Console.WriteLine("That id is already being used. Please enter a different id: ");
+                ValidateID(newBook2);
+            }
+        }
+        else {
+            Console.WriteLine("Invalid id, please try again: ");
+            ValidateID(newBook2);
+        }
     }
     /// <summary>
     /// A method that displays all books in bookDictionary using a foreach loop
