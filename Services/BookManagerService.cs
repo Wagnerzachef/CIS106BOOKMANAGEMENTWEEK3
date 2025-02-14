@@ -136,9 +136,13 @@ public class BookManagerService
     {
         Console.WriteLine("Which book would you like to delete?");
         string Id = Console.ReadLine();
-        string deletedBook =bookDictionary[Id].bookTitle;
-        bookDictionary.Remove($"{Id}");
-        Console.WriteLine(deletedBook + " REMOVED");
+        if (bookDictionary.ContainsKey(Id)) {
+            string deletedBook =bookDictionary[Id].bookTitle;
+            bookDictionary.Remove($"{Id}");
+            Console.WriteLine(deletedBook + " REMOVED");
+        } else {
+            Console.WriteLine("This book doesn't exist.\n");
+        }
     }
     /// <summary>
     /// The method that runs the book manager service
